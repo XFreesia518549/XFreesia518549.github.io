@@ -1,40 +1,285 @@
-extends base
-
-block title
-  title= page.title + " | " + config.title
-
-block main
-
-  // gallery that comes before the header
-  if page.photos
-     if page.photos.length
-      .article-gallery
-        .article-gallery-photos.container
-          for photo in page.photos
-            a.article-gallery-img.fancybox(href=url_for(photo), rel="gallery_" + page._id)
-              img(src=url_for(photo), itemprop="image")
-
-  .wrapper
-    .container.post-header
-      h1: = page.title
-
-  .wrapper
-    .container.meta
-      .post-time= page.date.format(config.date_format)
-      if (page.categories && page.categories.length)
-        .post-categories
-          != list_categories(page.categories, {show_count: false, class: 'post-category', style: 'none', separator: '>'})
-      if (page.tags && page.tags.length)
-        .post-tags
-          != list_tags(page.tags, {show_count: false, class: 'post-tag', style:'none', separator:'/'})
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
 
 
-  article
-    .container.post
-      != page.content
+  <link rel="apple-touch-icon" sizes="180x180" href="/project/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/project/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/project/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/project/images/logo.svg" color="#222">
 
-    // comment system
-    .container
-      hr
-      include _partial/comments
+<link rel="stylesheet" href="/project/css/main.css">
 
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"xfreesia518549.github.io","root":"/project/","images":"/project/images","scheme":"Muse","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/project/js/config.js"></script>
+
+    <meta name="description" content="＊我流幻龙光流水账，有整个5.0-5.5剧透+4.0欧米茄支线+暗影秘话第三、第八话相关剧透。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【FF14&#x2F;幻龙光&#x2F;鸥】旅途">
+<meta property="og:url" content="https://xfreesia518549.github.io/XFressia518549.github.io/project/2022/06/16/midgardsormrxwol-journy/index.html">
+<meta property="og:site_name" content="PIER">
+<meta property="og:description" content="＊我流幻龙光流水账，有整个5.0-5.5剧透+4.0欧米茄支线+暗影秘话第三、第八话相关剧透。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-16T13:43:16.000Z">
+<meta property="article:modified_time" content="2022-06-17T16:14:17.502Z">
+<meta property="article:author" content="鸥鸥">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://xfreesia518549.github.io/XFressia518549.github.io/project/2022/06/16/midgardsormrxwol-journy/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://xfreesia518549.github.io/XFressia518549.github.io/project/2022/06/16/midgardsormrxwol-journy/","path":"2022/06/16/midgardsormrxwol-journy/","title":"【FF14/幻龙光/鸥】旅途"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【FF14/幻龙光/鸥】旅途 | PIER</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/project/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/project/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">PIER</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">鸥鸥</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/project/archives/">
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xfreesia518549.github.io/XFressia518549.github.io/project/2022/06/16/midgardsormrxwol-journy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/project/images/avatar.gif">
+      <meta itemprop="name" content="鸥鸥">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PIER">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【FF14/幻龙光/鸥】旅途 | PIER">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【FF14/幻龙光/鸥】旅途
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-06-16 21:43:16" itemprop="dateCreated datePublished" datetime="2022-06-16T21:43:16+08:00">2022-06-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-18 00:14:17" itemprop="dateModified" datetime="2022-06-18T00:14:17+08:00">2022-06-18</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>＊我流幻龙光流水账，有整个5.0-5.5剧透+4.0欧米茄支线+暗影秘话第三、第八话相关剧透。</p>
+<span id="more"></span>　　　
+<p>　　<br>　　<br>　　光之战士的旅途是一场奇妙的冒险。穿过积雪的高山，越过东方的草原，踏上其它世界的土地，结识不同种族的友人们，他的经历足以编成瑰丽的史诗，让吟游诗人们传唱下去。<br>　　告别了石之家的同伴们，他只身一人前往了银泪湖附近。摩杜纳真是个神奇的地方，微风吹起了他的碎发，光之战士忍不住想，前往第一世界的旅途也是从这里开始的，他们也是在这个地方迎回了沉睡多年的那位红眼睛的朋友，为异世界的冒险正式画上句号。同样的，他想拜访的对象也在这里沉睡着。<br>　　光之战士拍了拍陆行鸟搭档的喙，示意它在这里等等自己，聪明的小鸟轻柔地鸣叫着，蹭了蹭他的手心。<br>　　算是某种意义上的故地重游吧。他再次踏上了那些残破的金属板搭成的路，年久失修的甲板在脚下发出令人牙酸的吱呀声，当时对他来说还有些讨厌的螃蟹和蝾螈们已经构不成威胁，看见他反而自觉地跑开了。帝国军也从塔里撤出，除了鞋底和脚下金属碰撞发出的声音，也只有银泪湖的湖水在身下翻涌，隐约能听见像是生物活动的窸窣动静，但是模糊又不真切，他也不想去管。<br>　　不仅是海德林很久没有与他对过话了，自从与欧米茄一战后，就连尘世幻龙也没有了声音，他有些想念它了。<br>　　塔内似乎一切未变，照旧的弯弯绕绕，走过漂浮气体填充区，终于见到了阳光，只要顺着幻龙的脊背向上就会到达密约大堂。光之战士在阳光下伸了个懒腰，转而又有点担忧地挠了挠头，在别人睡觉的时候贸然拜访是不是不太合适？<br>　　他也不是没有试着呼唤过尘世幻龙，甚至试着用呼唤他的小树枝的方法喊了一下——理所当然地没有得到回应，在梦里还被某位小妖灵给念叨了。如果他是尘世幻龙的话，说不定会对这个称呼翻个白眼，光之战士无奈地叹了口气，不过作为龙之始祖应该也不会介意这点小事就是了。<br>　　密约大堂中一片寂静，光之战士呼唤了几声，见没有回应，也就很自来熟地一屁股坐下，思索着那些书中到底是怎么开始讲述一个故事的。<br>　　他毕竟不是吟游诗人，也不像阿尔菲诺一样拥有强大的演说能力，他的故事讲得像流水账，琐碎却又认真地复述了每一段细节，水晶公努力藏起来的尾巴、于里昂热的水上魔法、雅·修特拉和夜之民们、被迫和小仙子们玩耍的双子们……还有桑克瑞德和琳的故事，他蓦地也有点想念起那个橙色头发的小姑娘起来，如果桑克瑞德看到空无大地现在生机盎然的样子，或许也会觉得欣慰吧。<br>　　他的冒险暂告一段落时，他在孪晶塔里看到了加隆德他们留下来的记录，过去的冒险经历成为了穿越时空拯救未来的动力。也不知道阿尔法和欧米茄的旅行走到了哪里，他有些高兴地笑着，听说有加隆德的员工曾经在摩杜纳看见过这对奇怪的组合，真希望能和它们也交流一下，不知道阿尔法有没有也经历了愉快的冒险？还有欧米茄，那个奇奇怪怪的小东西有没有获得它所想要的“心”呢？不过他不太肯定幻龙究竟乐不乐意听他提起欧米茄的事情，虽然对于拯救世界来说，欧米茄可以说帮了大忙，但是当初在时空狭缝中的事情，回想起来还是能把他吓出一身冷汗，要是没有尘世幻龙，他怕是真的要栽在这个外星生物手里了。<br>　　还有海底深处那座孤独的城市幻影，等他再回去的时候它还会存在吗？那个把灵魂交给他的战士的身影随后便自然而然地出现在了下一段，他相信莫伦肯定把他们的故事重新编进了史册。这些事情仿佛就发生在昨天一样，他滔滔不绝地说着，开始有些后悔没有带水壶，嘴唇已经开始发干，这时候要是能喝到塔塔露泡的热茶该有多好，光之战士惋惜地咂了咂嘴。<br>　　于是他不得不省略掉了许多细节，他知道即便尘世幻龙仍在沉睡中，对于原初世界发生的事情也是有所了解的。不过故事总是需要一个倾听者的，很快他又要踏上其它的旅途，在这之前他需要一个盒子，来把先前旅途的回忆尽数存放起来。<br>　　等到夕阳照亮他的盔甲，故事已经从阿莉塞的小猪讲到了提亚马特，那位被囚禁在魔大陆数千年的、幻龙的子嗣终于再次获得了自由，不知道幻龙有没有看见她再次在天空翱翔的样子？光之战士拍拍屁股上的灰，站起来伸展了一下有些发麻的四肢，余晖把他的黑色盔甲染成了金色，黄金平原一战的时候也是这样一个时刻，暗绿色的巨龙咆哮着向那个赝品吐出复仇的怒火，龙族的嘶鸣响彻天空。<br>　　他忍不住又多说了几句，连他自己都佩服起自己的口才来。这时候星星已经在天边若隐若现，再不回去的话就要没晚饭吃了。他不得不狠狠清了清嗓子，试图掩饰喉咙已经说到快冒烟的状态，最后简单道了个别，匆匆跑下去找自己的陆行鸟。<br>　　陆行鸟挥动毛茸茸的翅膀，载着旅人踏上归途，尘世幻龙和阿格里俄斯号依旧安静地沉睡在夜幕下的银泪湖中，在光之战士的视野中逐渐变成一团模糊的黑影。<br>　　<br>　　欧米茄未曾记录，光之战士并不知晓，在第八灵灾发生的时间线里，尘世幻龙并没有一直沉睡下去。它见证了加隆德炼铁厂的人们启动水晶塔，就像菲奥曾经说过的一样，或许真的是人类为了未来奋力挣扎、为了拯救世界的梦想而不断挑战的样子唤醒了幻龙，它与人类一起携手拉开了新的序幕。<br>　　但眼下第八灵灾已经变成了不会发生的另一条时间线，为世界带来希望的英雄也和普通人一样正在梦乡之中，光之战士又一次在梦中遇到了他的小树枝前来玩耍，不过橙色的小妖灵突然停了下来，歪着头看着光之战士。<br>　　怎么了吗？他好奇地问道。<br>　　有人来看你啦。菲奥有些无奈地摊了摊手，改天见吧，我的小树苗！<br>　　是谁？他还想问问菲奥，总不会是拂晓的人半夜准备吃夜宵来喊他吧？可是等他准备开口的时候，小小的妖灵已经离开了他的梦境。<br>　　迷你形态的幻龙正蹲坐在床边，垂着头看着这个睡得迷迷糊糊的人类，他好像在努力想让自己清醒过来，但是困倦又扯着他的眼皮，费了半天劲才把眼睛睁开一条缝，说梦话般含糊地抱怨幻龙不回应自己。<br>　　它该回应点什么呢？尘世幻龙一时哑然，它又不是听吟游诗人讲故事的孩童，它在沉睡中也能观测到世界的变迁，它也不插手人类的战争，只是在默默守护着自己应该守护的东西罢了。<br>　　小小的万龙始祖往边上移了两步，避开了光之战士翻身时候挥过来的手，人类之子好像还想说些什么，嘴唇翕动着，却发不出完整的声音，这个小小的插曲就此结束，他的呼吸又归于平稳，显然是又进入了睡眠之中。<br>　　算了。尘世幻龙轻轻甩了甩尾巴，像条普通的小龙一样蜷缩起来，趴在了光之战士的身边。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/project/2022/06/12/hello-world/" rel="prev" title="Hello World">
+                  <i class="fa fa-chevron-left"></i> Hello World
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/project/2022/06/17/DRDxBRD-sweets/" rel="next" title="【FF14/龙诗/鸥】Sweets">
+                  【FF14/龙诗/鸥】Sweets <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">鸥鸥</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/project/js/comments.js"></script><script src="/project/js/utils.js"></script><script src="/project/js/motion.js"></script><script src="/project/js/schemes/muse.js"></script><script src="/project/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
