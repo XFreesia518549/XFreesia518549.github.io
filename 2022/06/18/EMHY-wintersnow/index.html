@@ -1,40 +1,279 @@
-extends base
-
-block title
-  title= page.title + " | " + config.title
-
-block main
-
-  // gallery that comes before the header
-  if page.photos
-     if page.photos.length
-      .article-gallery
-        .article-gallery-photos.container
-          for photo in page.photos
-            a.article-gallery-img.fancybox(href=url_for(photo), rel="gallery_" + page._id)
-              img(src=url_for(photo), itemprop="image")
-
-  .wrapper
-    .container.post-header
-      h1: = page.title
-
-  .wrapper
-    .container.meta
-      .post-time= page.date.format(config.date_format)
-      if (page.categories && page.categories.length)
-        .post-categories
-          != list_categories(page.categories, {show_count: false, class: 'post-category', style: 'none', separator: '>'})
-      if (page.tags && page.tags.length)
-        .post-tags
-          != list_tags(page.tags, {show_count: false, class: 'post-tag', style:'none', separator:'/'})
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
 
 
-  article
-    .container.post
-      != page.content
+  <link rel="apple-touch-icon" sizes="180x180" href="/project/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/project/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/project/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/project/images/logo.svg" color="#222">
 
-    // comment system
-    .container
-      hr
-      include _partial/comments
+<link rel="stylesheet" href="/project/css/main.css">
 
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"xfreesia518549.github.io","root":"/project/","images":"/project/images","scheme":"Muse","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/project/js/config.js"></script>
+
+    <meta name="description" content="*双无影if，胡编乱造且ooc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【FF14&#x2F;爱梅希斯&#x2F;鸥】冬雪">
+<meta property="og:url" content="https://xfreesia518549.github.io/XFressia518549.github.io/project/2022/06/18/EMHY-wintersnow/index.html">
+<meta property="og:site_name" content="PIER">
+<meta property="og:description" content="*双无影if，胡编乱造且ooc">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-17T16:49:48.000Z">
+<meta property="article:modified_time" content="2022-06-17T16:50:52.599Z">
+<meta property="article:author" content="鸥鸥">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://xfreesia518549.github.io/XFressia518549.github.io/project/2022/06/18/EMHY-wintersnow/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://xfreesia518549.github.io/XFressia518549.github.io/project/2022/06/18/EMHY-wintersnow/","path":"2022/06/18/EMHY-wintersnow/","title":"【FF14/爱梅希斯/鸥】冬雪"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【FF14/爱梅希斯/鸥】冬雪 | PIER</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/project/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/project/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">PIER</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">鸥鸥</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/project/archives/">
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xfreesia518549.github.io/XFressia518549.github.io/project/2022/06/18/EMHY-wintersnow/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/project/images/avatar.gif">
+      <meta itemprop="name" content="鸥鸥">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PIER">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【FF14/爱梅希斯/鸥】冬雪 | PIER">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【FF14/爱梅希斯/鸥】冬雪
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-06-18 00:49:48 / 修改时间：00:50:52" itemprop="dateCreated datePublished" datetime="2022-06-18T00:49:48+08:00">2022-06-18</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>*双无影if，胡编乱造且ooc</p>
+<span id="more"></span>
+<p>　　<br>　　<br>　　<br>　　索鲁斯遣走了最后一名护卫，他说需要一个人呆一会儿。<br>　　最近的日子不好也不坏。大体上来说计划还算是顺利地进行着，但是总有些零碎的事情搅得人心烦。<br>　　比如前两天有个不知死活的刺客试图暗杀他，只不过他被琐事缠身，懒得再分神去给这段小插曲，稍稍吓唬了一下就让那个暗杀者跑了。今天这个水平还不及上一个，他懒洋洋地想着，毫不在意地把后背暴露给了这个三脚猫。<br>　　水平不怎么样，还沉不住气。很快他就听见了细小的破风声，还有镰刀展开的轻微机括声。第二个声音让他小小地惊讶了一秒，不过这并不影响他的判断。侧身躲过一记不太熟练的劈斩，他一把抓住来者的衣服领子，把人直接摔在了硬邦邦的王座上，黑色的镰刀就此脱手，在地上滑出去一大段距离。<br>　　没有气急败坏的质问也没有反击，刺客自暴自弃似的，以一个变扭的姿势狼狈地躺在他的座位上，揉着撞到的屁股怨声载道。<br>　　“好玩吗，希斯拉德？”他俯下身子，阴影笼罩住了他的搭档，兜帽在摔倒的时候已经被撞歪了，几绺散落的紫发彻底暴露了他的身份。<br>　　“呜啊……好痛啊……哈迪斯，你下手也太重了！”希斯拉德扯下了自己的兜帽，不过依旧躺着没动，“我可是听说你被暗杀了才连夜赶回来的！”<br>　　哈迪斯几乎要被他气笑了，他指了指那把镰刀，一时半会都不知道该说些什么。只能哭笑不得地把瘫着的希斯拉德又拎了起来。<br>　　“你还是用弓比较好。”他抚平了希斯拉德翘起的发梢，又抬手整理了一下脸侧的碎发，最后这样说了一句。<br>　　“你也不给我机会啊。”希斯拉德小声嘟哝着，习惯性地搂住哈迪斯的腰，把脸埋进了那件大外套的毛毛领子里，无影的衣服稍微尖锐了些，这样柔软又温暖的触感是正正好的，希斯拉德颇为喜欢。<br>　　哈迪斯嗤笑一声：“你要是想谋权篡位的话我可以手把手教你，现在开始准备还来得及。”<br>　　“不要。”相当干脆利落的拒绝。<br>　　“在艾欧泽亚玩得开心吗？”哈迪斯干脆跳过了这个话题，指尖摩挲着希斯拉德的后颈，绕着那几缕梳不进去的碎发把玩，只不过脖颈处实在是过于冰凉，让他忍不住生出一丝担心来，“你在外面呆了多久？”<br>　　“也没有很久，本来今天星星还不错的，看了一会又下雪了。”希斯拉德终于抬起了头，对上了那双有些黯淡的金色眼瞳，“而且你这话说的，好像我跑去春游了一样……姑且还是做了点事的。”<br>　　“看过我书房里的报告吧，那你也写一份，明天交。”哈迪斯淡淡地说道。不出所料，希斯拉德闻言又把脸埋进了毛毛里，直接装起了鸵鸟。<br>　　他当然只是随口乱说的，想来希斯拉德也不会写，就算哈迪斯问起他也会用“昨天晚上吹了太久冷风头真的好痛实在是一个字也写不出来求你了哈迪斯放过我吧”来蒙混过关。<br>　　不过……“春游”啊……哈迪斯一时间走神了。北洲气候苦寒，每天一眼望去除了雪还是雪，明明是落上指尖就会消散的脆弱结晶，堆积起来却变成终年不化的模样，灰蒙蒙的天空也不常能望见群星，唯有遥远的月亮在晴朗的夜晚散发着微弱的光辉。可黯淡的星空根本不及旧时亚马乌罗提半分，哈迪斯对此并没有什么兴趣。他知道希斯拉德时常会在屋顶望着天空发呆，但是不太能理解他在看什么。有时候是看星星——希斯拉德甚至为此研究过一阵子占星术，不过最后以占卜大失败而告终，有时候会因为突然看到一只不认识的鸟跑去查图鉴，也有时候什么都不看，无声而小心地掀开希斯拉德的面具时，会发现他睡得正香。<br>　　显然哈迪斯的走神逃不过希斯拉德的眼睛，回过神的时候他已经被那对紫水晶一般的眼瞳紧盯住了。希斯拉德看破却不说破，收起尖锐的手甲，捧住哈迪斯的脸，凑上去给了他一个轻柔的吻，不带任何欲望，只是简单的嘴唇相贴，温和而又包容。<br>　　“怎么样？心情好一点了吗？”希斯拉德眯起眼睛笑着，心满意足地收回了手，指尖恰巧从耳垂边划过，哈迪斯下意识地后退一步，于是他的耳坠晃动得更加厉害了。<br>　　他不得不承认希斯拉德的直觉敏锐得惊人，甚至有时候像能够读心一样，尽管他也知道世间并不存在这样的魔法。于是哈迪斯意义不明地“哼”了一声，对他的提问不置可否。<br>　　希斯拉德笑得更开心了，不过哈迪斯似乎察觉到了什么，他轻轻舔了舔嘴唇，向希斯拉德投去疑问的目光——<br>　　“你又去酒馆了？”<br>　　“咦！？”希斯拉德一下瞪大了眼睛，大概是以为自己藏得很好，没想到一下子就被发现了。<br>　　其实酒味淡薄得几乎可以忽略，但是呼吸间带着一丝香水的味道，他猜测希斯拉德应该是先去过酒馆，然后去了书店，身上的味道是路过边上香水店的时候蹭上的。他是不太高兴去参与人类的活动，不过希斯拉德的适应性看起来比他好不少，无聊的时候常常会伪装成普通人类混进市区。虽说希斯拉德确实没有什么喝酒的爱好，但是这里实在是太冷了，而用一小杯烈酒驱逐寒意，对人类来说是再好不过的选择。不过希斯拉德不太参与活动，更多是听人闲谈，偶尔还真被他发现过一些端倪，让哈迪斯省去了好些麻烦。<br>　　他的猜测果然是对的，希斯拉德也就大大方方地承认了。正经新闻倒是没什么，不过希斯拉德好像又听了一网兜的八卦话题，要不是被他及时制止住了，大概又能洋洋洒洒说上大半天。<br>　　“香水味啊……我路过那家店的时候正好看见有个孩子在堆雪人，停下来搭了两句话，就是那时候蹭上的吧。”希斯拉德抬起手腕嗅了嗅，倒也没有闻到特别明显的味道，他的语气又轻快起来，“正好想到了一些往事。”<br>　　哈迪斯嘴角抽搐了一下，他看着希斯拉德灿烂的笑容就知道他们想到的是同一件事情，亚马乌罗提四季如春，下雪的机会少之又少，这种事情当然让人印象深刻，更何况这场大雪还是因为创造物造成的。<br>　　当时市民们都在互相讨论大雪的来源，时任爱梅特赛尔克席的哈迪斯从人们七嘴八舌的讨论中穿过，瞥了一眼灰色的天空。厚重的云层间闪过一个影子，也许别人不一定看见了，但是追踪着以太流向的他能清晰地看见一只巨大的鸟在云中盘旋，水元素被转换成冰元素，最终飘飘悠悠地变成雪花落到地面上。<br>　　创造物大概率是从创造管理局里跑出来的，就属这附近积雪最厚。国会议事堂门口蹲着两个熟悉的背影，他的挚友们谁都不在应在的岗位上，反而凑在一起捏雪人玩。随后他就被希斯拉德和阿泽姆一人一个胳膊绑架着参观他们沿路边积雪捏的雪雕。<br>　　“这是什么？一条绳子？”哈迪斯的眉毛都快拧到了一起，他亲爱的朋友们的创作对于他来说好像有点……超出常识了。<br>　　“这是狼桃。”希斯拉德的声音明显地颤抖起来，另一边的阿泽姆则是在抱怨他没有想象力。<br>　　“这个又是什么？”哈迪斯看完三个雪雕之后在心里承认他确实无法理解这些创作，不过毕竟没有借助魔法，徒手捏出来的东西也就不必要求太高了，“长方体毛球？”<br>　　“这是阿尔戈斯！”阿泽姆显然有被这个回答攻击到，并且被攻击到的不止他一个，长方体毛球的原型不知道什么时候来的，它发出了不满的“呜呜”声，直接用鼻子把那个雪雕给拱散掉了，随后抖了抖鼻尖的雪，亲昵地蹭了蹭阿泽姆。<br>　　“怎么连前代的阿泽姆都来了？”哈迪斯忍不住“啧”了一声，望着阿泽姆和阿尔戈斯一起在雪地里一蹦一跳地向着那个白色的身影跑去。<br>　　“毕竟在这里可不太好变身吧？”希斯拉德终于笑够了，整理了一下衣摆，拿出储存着这个概念的水晶解释道，“它为了自保也会攻击人的，所以暂定计划是先把周围的人疏散掉，再想个办法把它打下来。”<br>　　“说得倒是轻巧。”哈迪斯白了他一眼，云层中还涌动着略微有些暴躁的以太，从下往上攻击？还是几个人上去几个人在下面辅助？<br>　　希斯拉德还没来得及回答，隔壁的行道树终于不堪重负，“哗啦”一下，宛如一道白色瀑布一般，雪花纷纷扬扬地落下，把恰好路过的倒霉调停者给埋了进去。<br>　　周围的几个人都被这场小插曲吸引了过来，哈迪斯无奈地打了个响指，把这个无辜的青年从雪堆里扒拉了出来。好在艾里迪布斯并没有很在意，认真地整理好面具和兜帽以后又像没事人一样，拍了拍袍子上的雪开始向大家公布计划。<br>　　“哈哈，那次结束以后，哈迪斯你的头上堆满了雪，远看过去好蓬松……”希斯拉德几乎是笑得前仰后合，哈迪斯欲言又止，最后只能无可奈何地抓住他的手腕，用一个吻堵住了他的嘴。<br>　　“你又不用参与战斗。”哈迪斯不满地抱怨道。<br>　　“我可是指挥哦！”希斯拉德笑着，安心地接受了这个小小的抗议。<br>　　“陛下！”外面传来了中气十足的一声报告，打断了二人的独处时间。希斯拉德迅速从他的怀抱里挣脱出来，隐入黑暗之中，他还没忘记暗杀武器还留在地上呢。<br>　　哈迪斯则是默默地闭上了眼睛，他需要重新把角色切换回索鲁斯的状态，就像幕后的演员进入角色，回到舞台上，面对他的加雷马帝国。只有在希斯拉德面前，他才会是“哈迪斯”。<br>　　“进来。”他向门外说道。<br>　　房间中另一个气息彻底消失不见。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/project/2022/06/18/EMHY-stella/" rel="prev" title="【FF14/爱梅希斯/鸥】星间独奏">
+                  <i class="fa fa-chevron-left"></i> 【FF14/爱梅希斯/鸥】星间独奏
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/project/2022/06/18/EMHY-the-variation-of-time/" rel="next" title="【FF14/爱梅希斯/鸥】流光变奏">
+                  【FF14/爱梅希斯/鸥】流光变奏 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">鸥鸥</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/project/js/comments.js"></script><script src="/project/js/utils.js"></script><script src="/project/js/motion.js"></script><script src="/project/js/schemes/muse.js"></script><script src="/project/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
